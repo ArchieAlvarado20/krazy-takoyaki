@@ -1,0 +1,26 @@
+.pagination>li>a, .pagination>li>span{
+    border:1px solid black !important;
+    background-color: black;
+  }
+  div.DTE_Footer_Content {
+    position: relative;
+}
+
+div.DTE_Form_Buttons {
+    float: right;
+}
+ 
+div.DTE div.DTE_Form_Buttons button {
+    float: left;
+    margin: 0;
+    border-radius: 0;
+}
+ 
+div.DTE div.DTE_Form_Buttons button:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+ 
+div.DTE div.DTE_Form_Buttons button:last-child {
+    border-top-right-radius: 3px;
+}
