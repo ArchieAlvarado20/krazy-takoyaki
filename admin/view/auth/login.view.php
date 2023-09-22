@@ -48,7 +48,7 @@
                         <div class="d-flex align-items-center justify-content-between mb-3">
                           <div class="row-sm-12 d-flex">
                               <img src="assets/img/tako.png" alt="Logo" style="width: 50px; height: 50px;" class="col-sm-1">
-                              <h3 class="text-primary col-sm-11 mt-2">Crazy Takoyaki</h3>
+                              <h3 class="text-primary col-sm-11 mt-2"><?=esc(APP_NAME)?></h3>
                           </div>
                             <h3>Sign In</h3>
                         </div>

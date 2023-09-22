@@ -61,25 +61,22 @@ require_once view_path('partials/header');
                        </select>
                       
                     </div>
-                  
-                    <div class="mb-3 mt-1">
-                      <label for="">Active/De-activate</label>
-                          <br/>
-                          <input <?php if(!empty($row['verify_status'])){?><?=set_value('verify_status', $row['verify_status'] == true ? 'checked' : '');?>
-                            <?php }else{?>
-                              <?=set_value('verify_status', $row['verify_status'] == false ? '' : 'checked');?>
-                              <?php } ?>
-                            type="checkbox" class="form-check-input text-primary" name="verify_status" style="width:30px;height:30px">
-                    </div>
+                
                     <div class="mb-3 row">
-                    <div class="col">
+                    <div class="col-8">
                        <label for="formFile" class="form-label fw-bold">Product Image</label>
                             <input  value="<?=set_value('image',$row['image'])?>" type="file" name="image" class="form-control bg-dark <?=!empty($error['image']) ? 'border-danger' : '' ;?>" placeholder="No file selected."  aria-label="Username" aria-describedby="basic-addon1">
                              <?php if(!empty($error['image'])):?><small class="text-danger"><?=$error['image']?></small><?php endif; ?>
                     </div>
-                    <div class="col">
+                    <div class="col-2">
                         <center><img src="<?=$row['image']?>" alt="" class="mx-auto mb-3 mt-3" style="width:100%;max-width:100px;height:100%;max-height:100px;"></center>
                     </div>
+                    <div class="col-2 text-center  mt-3">
+                      <label for="">Activate/De-activate</label>
+                          <br/>
+                          <input type="radio" class="form-check-input text-primary ms-0" name="verify_status" value="1" style="width:20px;height:20px" <?=set_value('verify_status', $row['verify_status'] == 1 ? 'checked' : '');?>>
+                          <input type="radio" class="form-check-input text-primary ms-2" name="verify_status" value="0" style="width:20px;height:20px" <?=set_value('verify_status', $row['verify_status'] == 0 ? 'checked' : '');?>>
+                      </div>
                     
                   </div>
                     <div class="row-sm-12 d-flex ">

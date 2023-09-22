@@ -8,6 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $_POST['date'] = date("Y-m-d H:i:s");
   $_POST['user_id'] = auth("id");
   $_POST['p_name'] = strtoupper($_POST['p_name']);
+  $_POST['re_order'] = 0;
   // show($_POST);
   // die;
 
@@ -17,7 +18,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $_POST['image'] = $_FILES['image'];
   }
   $error = $product->validate($_POST);
-  $_POST['category'] == true ? $_POST['category'] = 1 : $_POST['category'] = 0;
   if(empty($error)){
     $folder = "upload/";
     if(!file_exists($folder)){

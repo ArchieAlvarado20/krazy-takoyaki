@@ -11,7 +11,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   //  die;
     $user = new User;
     $error = $user->validate($_POST,$id);
-    $_POST['verify_status'] == true ? $_POST['verify_status'] = 1 : $_POST['verify_status'] = 0;
     if(empty($error)){
       if(empty($_POST['password'])){
         unset($_POST['password']);

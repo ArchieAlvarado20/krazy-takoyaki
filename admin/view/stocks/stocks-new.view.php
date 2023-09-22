@@ -23,7 +23,7 @@ require_once view_path('partials/header');
                           <a href="index.php?pg=stocks" class="btn btn-dark text-primary px-5">Back</a>
                         </div>
                         <div class="col-md-5">
-                          <h4 class="fw-bold text-right text-primary" style="font-weight: bolder;"><strong><i class="fa fa-search"></i> Search Product</strong></h4>
+                          <h4 class="fw-bold text-right text-primary" style="font-weight: bolder;"><strong><i class="fa fa-search"></i> Search Raw-Items</strong></h4>
                         </div>
                         <div class="col-md-1"></div>
                         <div class="col-md-3">

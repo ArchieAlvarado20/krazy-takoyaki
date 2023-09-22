@@ -56,15 +56,15 @@
 		<div><i><?=date("F j, Y(l) h:i a")?></i></div>
 	</center>
 
-	<table class="table table-sm border-white">
+	<table class="table table-sm border-white p-1">
 	<tr style="height: 10px;"></tr>
 
 		<?php foreach ($obj['data'] as $row):?>
 			<tr>
-			<td class="d-flex row p-0"><div class="col-12"><?=$row['description']?></div></td>
+			<td class="d-flex row p-0"><div class="col-12"><b>(<?=$row['p_name']?>) </b><?=$row['description']?></div></td>
 			</tr>
 			<tr>
-				<td class="d-flex row p-0"><div class="col-3"><b><?=$row['p_name']?></b></div><div class="col"><?=$row['qty']?> PC</div><div class="col">@<?=$row['price']?></div><div class="col"><?=number_format($row['qty'] * $row['price'],2)?></div></td>
+				<td class="d-flex row p-0"><div class="col"><?=$row['qty']?> PC</div><div class="col">@<?=$row['price']?></div><div class="col"><?=number_format($row['qty'] * $row['price'],2)?></div></td>
 			</tr>
 	
 		<?php endforeach;?>
@@ -89,8 +89,9 @@
 		<center><td><b><?= strtoupper($obj['take'])?></b></td><br></center>
 		<center><td class="text-dark">Table no.: <b><?= $obj['table']?></b></td><br></center>
 		<center><td>Cashier: <?php echo auth('name') ?></td><br></center>
-		<center><td>B81 L3 Bel. Aldea Gen. Trias Cavite</td><br></center>
-		<center><td>Thanks for shopping with us!</td></center>
+		<center><td>Crossing Brgy. San. Simon Area C Dasmarinas Cavite</td><br></center>
+		<center><td>Thanks for eating with us!</td></center>
+		<center><td>...</td></center>
 	</tr>
 	
 <?php endif;?>

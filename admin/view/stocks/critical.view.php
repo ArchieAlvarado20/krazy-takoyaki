@@ -78,4 +78,3 @@ require_once view_path('partials/header');
 
 
   
-  

@@ -108,8 +108,8 @@
                     text: "Are you sure you want to logout?",
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
+                    confirmButtonColor: 'maroon',
+                    cancelButtonColor: 'maroon',
                     confirmButtonText: 'Yes, I want to logout!',
                     }).then((result) => {
                     if (result.isConfirmed) {

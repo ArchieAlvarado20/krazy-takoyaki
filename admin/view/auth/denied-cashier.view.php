@@ -5,43 +5,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
- 
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="assets/css/adminlte.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
-  <!-- summernote -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-    <!-- DataTables -->
-  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css"> -->
+  <!-- Favicon -->
+  <link href="assets/img/favicon.ico" rel="icon">
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Alertify -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
-  <!-- Font -->
-  <link href="assets/css/nucleo.css" rel="stylesheet">
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/brand-style.css">
+<!-- Icon Font Stylesheet -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="@sweetalert2/themes/dark/dark.css">
-  <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
+<!-- Libraries Stylesheet -->
+<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+<!-- Customized Bootstrap Stylesheet -->
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/all.min.css">
+<link rel="stylesheet" href="assets/css/main.css">
+
+<!-- Template Stylesheet -->
+<link href="assets/css/style.css" rel="stylesheet">
+
+<!-- sweet-alert -->
+<link rel="stylesheet" href="@sweetalert2/themes/dark/dark.css">
 <div class="main-content">
     <!-- Top navbar -->
 
@@ -57,7 +46,7 @@
 
              <h1 class="mt-5">Access  Denied!</h1>
             <div><small>Maybe you are deactivated. Please ask admin to activate you account</small></div><br>
-            <button class="btn btn-success" onclick="logout()">You may logout!</button>
+            <button class="btn btn-primary" onclick="logout()">You may logout!</button>
 
     </center>
         </div>

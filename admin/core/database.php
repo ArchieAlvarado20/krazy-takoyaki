@@ -10,8 +10,8 @@ class Database{
         $driver = "mysql";
 
         // $host = "fdb1033.awardspace.net";
-        // $dbname = "4373961_idats";
-        // $user = "4373961_idats";
+        // $dbname = "4376736_krazy";
+        // $user = "4376736_krazy";
         // $pass = "Ellengay1";
         // $driver = "mysql";
     

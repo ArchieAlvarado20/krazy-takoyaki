@@ -7,7 +7,7 @@
 
      <!-- Sale & Revenue Start -->
      <div class="container-fluid pt-4 px-4">
-            <div class="col-sm-6 p-4">
+            <div class="col-sm-6 p-1">
                 <h1 class="m-0 text-primary" style="font-weight: bolder;">Sales</h1>
               </div>
                 <div class="row g-4">
@@ -65,6 +65,63 @@
                         </div>
                     </div>
                 </div>
+                <!-- Monthly -->
+                <!-- <div class="row g-4 mt-1">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-line fa-3x text-primary"></i>
+                            <div class="ms-3">
+                            <?php foreach($month_sales as $count) {?>
+                                <p class="mb-2">Last Month Sale</p>
+                                <h6 class="mb-0 text-center">₱ <?= $count['total_month'] ?? 0 ?></h6>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            <div class="ms-3">
+                          
+                                <p class="mb-2">Last Month Transaction</p>
+                                <?php if(!empty($transaction)){?>
+                              <?php foreach($transaction_month as $count) {?>
+                                <h6 class="mb-0 text-center"><?= $count['count']?></h6>
+                                <?php } ?>
+                                <?php }else{?>
+                                    <h6 class="mb-0 text-center">0</h6>
+                                    <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                            <?php foreach($cancel as $count) {?>
+                                <p class="mb-2">Cancelled Transaction</p>
+                                <h6 class="mb-0 text-center"><?= $count['count'] ?></h6>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-user fa-3x text-primary"></i>
+                            <div class="ms-3">
+                            <?php if(!empty($cashiers_duty)){?>
+                <?php foreach($cashiers_duty as $cashier) {?>
+                                <p class="mb-2">Today Cashier</p>
+                                <h6 class="mb-0 text-center"><?= $cashier['cashier'] ?></h6>
+                                <?php } ?>
+                  <?php } else {?>
+                    <h6 class="mb-0 text-center">no one</h6>
+                    <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>   -->
+                <!-- Monthly end -->
             </div>
             <!-- Sale & Revenue End -->
 
@@ -95,7 +152,7 @@
            
 
         </div>
-        <div class="row container-fluid mb-3 mt-3 ">
+        <div class="row container-fluid mb-1 mt-3">
           <h1 class="text-primary " style="font-weight: bolder;">Products</h1>
         </div>
         <div class="row p-3">

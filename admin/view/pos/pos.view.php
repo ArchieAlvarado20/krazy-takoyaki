@@ -53,7 +53,7 @@
    
                      <div class="user-panel mt-2 mb-0 d-flex row px-4" style="background-color: #141414;">
                                 
-                                <img class="rounded-circle mt-2 col-1" src="assets/img/archie.jpg" alt="" style="width: 60px; height: 40px;">
+                                <img class="rounded-circle mt-2 col-1" src="assets/img/user_male.jpg" alt="" style="width: 60px; height: 40px;">
                                     <p class="col-5 mt-3"><strong>CASHIER: <?=strtoupper(auth('name'))?></strong></p>
                                     <div class="col-4 d-flex mt-1">
                                         <img src="assets/img/tako.png" alt="Logo" style="width: 40px; height: 40px;" class="col-sm-1">
@@ -150,7 +150,7 @@
      <!--modals start-->
      <!--payment-modal start-->
      <div role="close-button" onclick="hide_modal(event,'payment-modal')" class="js-payment-modal d-none" style="background-color: #000000aa; width: 100%; height: 100%;position: absolute; left: 0px;top:0px;z-index:2;">
-         <div style="animation: appear 0.5s; border-radius:10px;width: 400px; height: 400px;padding: 20px; margin: auto;margin-top:200px;" class="bg-secondary text-white" >
+         <div style="animation: appear 0.5s; border-radius:10px;width: 400px; height: 400px;padding: 20px; margin: auto;margin-top:200px; backdrop-filter: blur(10px);color: white;opacity: 80%;" class="bg-secondary text-white" >
          <div class="row-sm-12 d-flex">
          <h3 class="mt-0 text-primary col-sm-12 text-center mb-3"><strong>PAYMENT</strong></h3>
             <!-- <div class="float-end p-1 text-right col-sm-1"><i class="fa fa-times text-dark " onclick="hide_modal(event,'payment-modal')" role="close-button"  type="button"></i></div> -->
@@ -161,7 +161,7 @@
                 </div>
                 <div class="row d-flex mb-3">
                         <p class="col text-left text-white mt-1">PAYMENT:</p>
-                        <input onkeyup="if(event.keyCode == 13)checkout(event)" class="js-payment-input form-control col text-white" type="number"  placeholder="Enter amount" name="">
+                        <input onkeyup ="enter_checkout(event)" class="js-payment-input form-control col text-white" type="number"  placeholder="Enter amount" name="">
                 </div>
 
                 <div class="row d-flex mb-3">
@@ -179,7 +179,7 @@
                 
 
                             <!-- <button role="close-button" onclick="hide_modal(event,'payment-modal')" type="button" class="col-md-5 btn btn-danger me-1">Cancel</button> -->
-                            <button role="close-button" onclick="checkout(event)" class=" col-md-12 btn btn-primary float-end mb-1 mt-1">Render</button>  
+                            <button role="close-button" onclick="checkout(event)" class=" col-md-12 btn btn-primary float-end mb-1 mt-1 js-render">Render</button>  
                           
                    
             </div>
@@ -187,7 +187,7 @@
              <!--payment-modal end-->
             <!--change-modal start-->
      <div role="close-button"  onclick="{hide_modal(event,'change');rendered_success()}" class="js-change-modal d-none" style="background-color: #000000aa; width: 100%; height: 100%;position: absolute; left: 0px;top:0px;z-index:2;">
-            <div style="animation: appear 0.5s; border-radius:10px;width: 400px; height: 320px;padding: 20px; margin: auto;margin-top:200px" class="bg-secondary">
+            <div style="animation: appear 0.5s; border-radius:10px;width: 400px; height: 320px;padding: 20px; margin: auto;margin-top:200px;backdrop-filter: blur(10px);color: white;opacity: 80%;" class="bg-secondary">
             <div class="row-sm-12 d-flex">
          <h3 class="ms-2 text-primary col-sm-12 text-center mb-3"><strong>CHANGE</strong></h3>
             <!-- <div class="float-end p-1 text-right col-sm-1"><i class="fa fa-times text-dark " onclick="hide_modal(event,'payment-modal')" role="close-button"  type="button"></i></div> -->
@@ -436,7 +436,7 @@
     {
        if(e.keyCode == 13)
        {
-        checkout(2)
+        mydiv.querySelector(".js-render").focus();
        }
     }
 
@@ -462,6 +462,7 @@
             mydiv.querySelector(".js-payment-input").focus();
 
             mydiv.querySelector(".js-table").value = "";
+            mydiv.querySelector(".js-take").value = "Dine-in";
 
         }else
         if(modal == "change"){
@@ -519,6 +520,7 @@
                     });
                         return;
         }
+
         amount = parseFloat(amount);
         if(amount < GTOTAL){
             swal.fire({
@@ -528,6 +530,7 @@
                     });
                    return;
         }
+
         CHANGE = amount - GTOTAL;
         AMOUNT = amount;
         TABLE = table;
@@ -583,8 +586,7 @@
 
 		RECEIPT_WINDOW = window.open('index.php?pg=print&vars='+vars,'printpage',"width=100px;");
 
-		setTimeout(close_receipt_window,2000);
-		
+		setTimeout(close_receipt_window, 1000);
 	}
  
  	function close_receipt_window()
@@ -667,7 +669,7 @@ function logout(){
     if(ITEMS.length > 0){
                 swal.fire({
                         title: 'Not Empty Cart',
-                        text: 'Please remove all the item from table before logging-out',
+                        text: 'Please remove all the item from the cart before logging-out',
                         icon: 'error',
                         confirmButtonText: 'Okay',
                        

@@ -1,3 +1,9 @@
 body a{
 	text-decoration: none;
 }
+.swal2-modal {
+ background-color: black;
+ backdrop-filter: blur(10px);
+ color: white;
+ opacity: 80%;
+}

@@ -22,15 +22,16 @@
 <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
 <!-- Customized Bootstrap Stylesheet -->
-<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/all.min.css">
-<link rel="stylesheet" href="assets/css/main.css">
+<link href="public/assets/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="public/assets/css/all.min.css">
+<link rel="stylesheet" href="public/assets/css/main.css">
 
 <!-- Template Stylesheet -->
 <link href="assets/css/style.css" rel="stylesheet">
 
 <!-- sweet-alert -->
 <link rel="stylesheet" href="@sweetalert2/themes/dark/dark.css">
+
 <div class="main-content">
     <!-- Top navbar -->
 
@@ -44,9 +45,7 @@
         <div class="col-sm-12">
     <center>
 
-             <h1 class="mt-5">Access  Denied!</h1>
-            <div><?=Auth::getMessage()?></div><br>
-            <button class="btn btn-primary" onclick="logout()">You may logout!</button>
+            <a href="http://krazy-takoyaki.onlinewebshop.net/public/index.php?pg=login" class="btn btn-dark text-primary border-primary">Login Here!</a>
 
     </center>
         </div>
@@ -126,15 +125,4 @@
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="plugins/toastr/toastr.min.js"></script>
-<script>
-    function logout(){
-                        Swal.fire(
-                        'Logging-out...!',
-                        'Successfully Logged-out',
-                        'success',
-                        )
-                        setTimeout(function(){window.top.location="index.php?pg=logout"} , 2000);
-                    }
-                
 
-  </script>

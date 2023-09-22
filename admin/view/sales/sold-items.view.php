@@ -1,6 +1,11 @@
 <?php require view_path('partials/header');?>
 <style>
   @import url('assets/css/brand-style.css');
+  .zoom:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1); 
+}
 </style>
 <!-- Google Font: Source Sans Pro -->
 
@@ -38,7 +43,7 @@
                                 <div class="col-sm-2">
                                 <label for="">End-date</label><input type="date" class="form-control" name="end" value="<?php echo $end ?? date('Y-m-d') ?>" ></div>
                                 <div class="col-sm-1">
-                                <label for="">Action</label><button class="btn btn-primary px-4" name="filter">Filter</button> </div>
+                                <label for="">Action</label><button class="btn btn-dark text-primary border-primary px-4" name="filter">Filter</button> </div>
                         </div>
                     </form>
                 <table id="myTable" class="table table-sm mb-0 text-center table-dark table-hover text-light">
@@ -46,7 +51,7 @@
                   <tr>
                     <th class="text-center">#</th>
                     <th class="text-center">Transno</th>
-                    <th class="text-center">Pcode</th>
+                    <th class="text-center">Name</th>
                     <th class="text-center">Description</th>
                     <th class="text-center">Quantity</th>
                     <th class="text-center">Price</th>
@@ -70,10 +75,10 @@
                     'p_id' -->
                   <?php $no=1;if(!empty($sales)):?>
                 <?php foreach ($sales as $sale):?>
-                            <tr>
+                            <tr class="">
                               <td class="text-center"><?= $no?></td>
                               <td class="text-center"><?= $sale['transno'] ?></td>
-                              <td class="text-center"><?= $sale['pcode'] ?></td>
+                              <td class="text-center"><?= $sale['p_name'] ?></td>
                               <td class="text-center" style="font-weight:bolder"><?= $sale['description'] ?></td>
                               <td class="text-center"><?= $sale['qty'] ?></td>
                               <td class="text-center"><?= $sale['price'] ?></td>

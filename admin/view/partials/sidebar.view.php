@@ -77,25 +77,4 @@
         </div>
         <!-- Sidebar End -->
 
-        <script>
-    function logout(){
-      Swal.fire({
-                    title: 'Logout',
-                    text: "Are you sure you want to logout?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, I want to logout!',
-                    }).then((result) => {
-                    if (result.isConfirmed) {
-                      setTimeout(function(){window.top.location="index.php?pg=logout"} , 2000);
-                        Swal.fire(
-                        'Logging-out...!',
-                        'Successfully Logged-out',
-                        'success',
-                        )
-                    }
-                    });
-    }
-  </script>
+        

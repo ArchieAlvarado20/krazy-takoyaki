@@ -62,15 +62,16 @@ require_once view_path('partials/header');
                     </div>
                   
                     <div class="mb-3 mt-1 row d-flex">
-                      <div class="col-3 text-center">
-                      <label for="">Active/De-activate</label>
-                          <br/>
-                          <input <?=set_value('verify_status') == true ? 'checked' : ''?> type="checkbox" class="form-check-input text-primary" name="verify_status" checked style="width:30px;height:30px">
-                      </div>
-                      <div class="col-9">
+                      <div class="col-10">
                           <label for="formFile" class="form-label fw-bold">Product Image</label>
                             <input  value="<?=set_value('image')?>" type="file" name="image" class="form-control bg-dark <?=!empty($error['image']) ? 'border-danger' : '' ;?>" placeholder="No file selected."  aria-label="Username" aria-describedby="basic-addon1">
                              <?php if(!empty($error['image'])):?><small class="text-danger"><?=$error['image']?></small><?php endif; ?>
+                      </div>
+                      <div class="col-2 text-center  mt-3">
+                      <label for="">Activate/De-activate</label>
+                          <br/>
+                          <input type="radio" class="form-check-input text-primary ms-0" name="verify_status" value="1" style="width:20px;height:20px" checked>
+                          <input type="radio" class="form-check-input text-primary ms-2" name="verify_status" value="0" style="width:20px;height:20px">
                       </div>
                     </div>
                   

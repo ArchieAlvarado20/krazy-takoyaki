@@ -14,6 +14,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && $row){
     }
     $error = $product->validate($_POST,$row['id']);
     $_POST['category'] == true ? $_POST['category'] = 1 : $_POST['category'] = 0;
+
+   if($_POST['category'] == 1){
+      $_POST['cost'] = 0;
+      $_POST['re-order'] = 0;
+   }else{
+    $_POST['price'] = 0;
+   }
+  
     if(empty($error)){
       $folder = "upload/";
       if(!file_exists($folder)){

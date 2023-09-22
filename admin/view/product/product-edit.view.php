@@ -40,33 +40,40 @@ require_once view_path('partials/header');
                   <?php if(!empty($error['description'])):?><small class="text-danger"><?=$error['description']?></small><?php endif; ?>
                 
                 </div>
+                <div class="mb-3 cost" <?= $row['category'] == 1 ? 'style="display:none"' : ''?>>
+                  <label for="">Cost</label>
+                  <input type="number" name="cost" id="cost" class="form-control bg-dark" autocomplete="off" value="<?=set_value('cost',$row['cost'])?>">
+                  <?php if(!empty($error['cost'])):?><small class="text-danger"><?=$error['cost']?></small><?php endif; ?>
+                </div>
 
-                <div class="mb-3">
+
+                <div class="mb-3 price" <?= $row['category'] == 0 ? 'style="display:none"' : ''?>>
                   <label for="">Price</label>
                   <input type="number" name="price" id="price" class="form-control bg-dark" autocomplete="off" value="<?=set_value('price',$row['price'])?>">
                   <?php if(!empty($error['price'])):?><small class="text-danger"><?=$error['price']?></small><?php endif; ?>
+                </div>
+
+                <div class="mb-3 re-order" <?= $row['category'] == 1 ? 'style="display:none"' : ''?>>
+                  <label for="">Re-order Level</label>
+                  <input type="number" name="re_order" id="re_order" class="form-control bg-dark" autocomplete="off" value="<?=set_value('re_order',$row['re_order'])?>">
+                  <?php if(!empty($error['re_order'])):?><small class="text-danger"><?=$error['re_order']?></small><?php endif; ?>
                 
                 </div>
                 <div class="mb-3 row">
-                    <div class="col">
+                    <div class="col-8">
                        <label for="formFile" class="form-label fw-bold">Product Image</label>
                             <input  value="<?=set_value('image',$row['image'])?>" type="file" name="image" class="form-control bg-dark <?=!empty($error['image']) ? 'border-danger' : '' ;?>" placeholder="No file selected."  aria-label="Username" aria-describedby="basic-addon1">
                              <?php if(!empty($error['image'])):?><small class="text-danger"><?=$error['image']?></small><?php endif; ?>
                     </div>
-                    <div class="col mt-1">
-                    
-                      <label for="">Display to POS</label>
-                          <br/>
-                          <input <?php if(!empty($row['category'])){?><?=set_value('category', $row['category'] == true ? 'checked' : '');?>
-                            <?php }else{?>
-                              <?=set_value('category', $row['category'] == false ? '' : 'checked');?>
-                              <?php } ?>
-                            type="checkbox" class="form-check-input text-primary" name="category" style="width:30px;height:30px">
-                    
-                    </div>
-                    <div class="col">
+                    <div class="col-2">
                         <center><img src="<?=$row['image']?>" alt="" class="mx-auto mb-3 mt-3" style="width:100%;max-width:100px;height:100%;max-height:100px;"></center>
                     </div>
+                    <div class="col-2 text-center  mt-3">
+                      <label for="">Post/Raw</label>
+                          <br/>
+                          <input type="radio" class="form-check-input text-primary ms-0 post" name="category" value="1" style="width:20px;height:20px" <?=set_value('category', $row['category'] == 1 ? 'checked' : '');?>>
+                          <input type="radio" class="form-check-input text-primary ms-2 raw" name="category" value="0" style="width:20px;height:20px" <?=set_value('category', $row['category'] == 0 ? 'checked' : '');?>>
+                      </div>
                     
                   </div>
 
@@ -109,3 +116,20 @@ require_once view_path('partials/header');
   <?php
   require view_path('partials/footer');
   ?>
+  <script>
+  $(document).ready(function() {
+    $(".post").click(function() {
+
+        $("div.price").show();
+        $("div.cost,div.re-order").hide();
+    });
+});
+$(document).ready(function() {
+    $(".raw").click(function() {
+
+        $("div.price").hide();
+        $("div.cost,div.re-order").show();
+    });
+});
+</script>
+  

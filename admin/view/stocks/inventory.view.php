@@ -30,7 +30,6 @@ require_once view_path('partials/header');
                     <th class="text-center">Pcode</th>
                     <th class="text-center">Barcode</th>
                     <th class="text-center">Description</th>
-                    <th class="text-center">Category</th>
                     <th class="text-center">Re-order</th>
                     <th class="text-center">Actual Stock</th>
                     <th class="text-center">Status</th>
@@ -46,7 +45,6 @@ require_once view_path('partials/header');
                               <td class="text-center"><?= $inventory['pcode'] ?></td>
                               <td class="text-center" ><?= $inventory['barcode'] ?></td>
                               <td class="text-center" style="font-weight:bolder"><?= strtoupper($inventory['description']) ?></td>
-                              <td class="text-center"><?= $inventory['category'] ?></td>
                               <td class="text-center"><?= $inventory['re_order'] ?></td>
                               <td class="text-center"><?= $inventory['qty'] ?></td> 
                               <td class="text-center"><?= $inventory['status'] == '0' ? "<span class='badge bg-success text-sm'>Full-Stock</span>" : "<span class='badge bg-primary text-sm'>Critical</span>"?></td> 

@@ -1,6 +1,12 @@
 <?php require view_path('partials/header');?>
 <style>
   @import url('assets/css/brand-style.css');
+
+  .zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
 </style>
 <!-- Google Font: Source Sans Pro -->
 
@@ -39,7 +45,7 @@
                 <?php foreach ($sales as $sale):?>
                             <tr>
                               <td class="text-center"><?= $no?></td>
-                              <td><img src="<?=crop($sale['image'])?>" alt="product image" style="width=50%;max-width:50px;height=100%;max-height:100px;"></td>
+                              <td class="zoom"><a href = "<?=crop($sale['image'])?>"><img src="<?=crop($sale['image'])?>" alt="product image" style="width=50%;max-width:50px;height=100%;max-height:100px;"></a></td>
                               <td class="text-center"><?= $sale['p_name'] ?></td>
                               <td class="text-center" style="font-weight:bolder"><?= $sale['description'] ?></td>
                               <td class="text-center"><?= $sale['view'] ?></td> 

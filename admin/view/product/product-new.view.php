@@ -1,9 +1,6 @@
 <?php
 require_once view_path('partials/header');
 ?>
-<style>
-  @import url('dist/css/brand-style.css');
-</style>
 <!-- Google Font: Source Sans Pro -->
 
   <!-- Main content -->
@@ -45,16 +42,22 @@ require_once view_path('partials/header');
                 </div>
 
 
-                <div class="mb-3">
+                <div class="mb-3 cost" style="display: none;">
                   <label for="">Cost</label>
                   <input value="<?=set_value('cost')?>" type="number" name="cost" id="cost" class="form-control <?=!empty($error['cost']) ? 'border-danger' : '' ;?>" autocomplete="off" >
                   <?php if(!empty($error['cost'])):?><small class="text-danger"><?=$error['cost']?></small><?php endif; ?>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 price">
                   <label for="">Price</label>
                   <input value="<?=set_value('price')?>" type="number" name="price" id="price" class="form-control <?=!empty($error['price']) ? 'border-danger' : '' ;?>" autocomplete="off" >
                   <?php if(!empty($error['price'])):?><small class="text-danger"><?=$error['price']?></small><?php endif; ?>
+                </div>
+
+                <div class="mb-3 re-order" style="display: none;">
+                  <label for="">Re-order Level(Must have a value if the item is Raw)</label>
+                  <input value="<?=set_value('re_order')?>" type="number" name="re_order" id="re_order" class="form-control <?=!empty($error['re_order']) ? 'border-danger' : '' ;?>" autocomplete="off"  placeholder="0">
+                  <?php if(!empty($error['re_order'])):?><small class="text-danger"><?=$error['re_order']?></small><?php endif; ?>
                 </div>
 
                 <div class="mb-3 row">
@@ -63,10 +66,11 @@ require_once view_path('partials/header');
                                 <input  value="<?=set_value('image')?>" type="file" name="image" class="form-control bg-dark <?=!empty($error['image']) ? 'border-danger' : '' ;?>" placeholder="No file selected."  aria-label="Username" aria-describedby="basic-addon1">
                                 <?php if(!empty($error['image'])):?><small class="text-danger"><?=$error['image']?></small><?php endif; ?>
                       </div>
-                      <div class="col-2 text-center mt-1">
-                      <label for="">Display to POS</label>
+                      <div class="col-2 text-center  mt-3">
+                      <label for="">Post/Raw</label>
                           <br/>
-                          <input <?=set_value('category') == true ? 'checked' : ''?> type="checkbox" class="form-check-input text-primary" name="category" checked style="width:30px;height:30px">
+                          <input type="radio" class="form-check-input text-primary ms-0 post" name="category" value="1" style="width:20px;height:20px" checked>
+                          <input type="radio" class="form-check-input text-primary ms-2 raw" name="category" value="0" style="width:20px;height:20px">
                       </div>
                        
                   </div>
@@ -100,4 +104,21 @@ require_once view_path('partials/header');
   <?php
   require view_path('partials/footer');
   ?>
+<script>
+  $(document).ready(function() {
+    $(".post").click(function() {
+
+        $("div.price").show();
+        $("div.cost,div.re-order").hide();
+    });
+});
+$(document).ready(function() {
+    $(".raw").click(function() {
+
+        $("div.price").hide();
+        $("div.cost,div.re-order").show();
+    });
+});
+</script>
+  
   
