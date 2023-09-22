@@ -56,7 +56,7 @@
                     </form>
                   
                 
-                <table id="myTable" class="myTable table table-sm table-bordered table-striped table-hover bg-dark mb-0 text-center">
+                <table id="myTable" class="table   mb-0 text-center table-dark table-hover text-light">
                   <thead class="bg-dark text-primary">
                   <tr>
                     <th class="text-center">#</th>

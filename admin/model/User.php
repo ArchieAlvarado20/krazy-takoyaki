@@ -42,6 +42,7 @@ class User extends Model
                         $error['phone'] = "Phone number is required!";
                     }
                    
+                   
                     //check password
                     if(!$id){
                         if(empty($data['password'])){
@@ -73,6 +74,25 @@ class User extends Model
                         }
                     }
                 }
+                          //check price
+                   $max_size = 4;//mbs
+                   $size = $max_size * (1024 *1024);
+                //   show($data['image']);die;
+                   if(!$id || ($id && !empty($data['image']))){
+                        if(empty($data['image'])){
+                            $error['image'] = "User profile is required";
+                        }else
+                        if(!($data['image']['type'] == "image/jpeg" || $data['image']['type'] == "image/jpg" || $data['image']['type'] == "image/png")){
+                        $error['image'] = "File must be jpeg or png";
+                        }else
+                        if($data['image']['error'] > 0){
+                            $error['image'] = "The image is failed to upload. Error No.".$data['image']['error'];
+                        }else
+                        if($data['image']['size'] > $size){
+                            $error['image'] = "The imga must be lower than " .$max_size."Mb";
+                        }
+                   }
+                
                 //search for more validation...
             return $error;
     }

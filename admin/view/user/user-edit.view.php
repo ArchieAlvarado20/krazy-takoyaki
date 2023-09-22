@@ -19,7 +19,7 @@ require_once view_path('partials/header');
           </div>
         </div>
         <div class="card-body">
-          <form action="" method="POST">
+          <form action="" method="POST" enctype="multipart/form-data">
             <div class="col-sm-12">
               <div class="mb-3">
                 <label for="">Name</label>        

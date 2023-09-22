@@ -53,7 +53,7 @@
    
                      <div class="user-panel mt-2 mb-0 d-flex row px-4" style="background-color: #141414;">
                                 
-                                <img class="rounded-circle mt-2 col-1" src="assets/img/user_male.jpg" alt="" style="width: 60px; height: 40px;">
+                                <img class="rounded-circle mt-2 col-1" src="<?= auth('image')?>" alt="" style="width: 60px; height: 40px;">
                                     <p class="col-5 mt-3"><strong>CASHIER: <?=strtoupper(auth('name'))?></strong></p>
                                     <div class="col-4 d-flex mt-1">
                                         <img src="assets/img/tako.png" alt="Logo" style="width: 40px; height: 40px;" class="col-sm-1">

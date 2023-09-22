@@ -138,4 +138,3 @@ function get_trans_count()
     return $num;
 }
 
-

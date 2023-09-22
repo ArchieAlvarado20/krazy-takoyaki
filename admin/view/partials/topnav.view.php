@@ -88,7 +88,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <span class="d-none d-lg-inline-flex"><?= auth('name')?></span>&nbsp;
-                            <img class="rounded-circle me-lg-2" src="assets/img/user_male.jpg" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="<?= auth('image')?>" alt="" style="width: 40px; height: 40px;">
                             
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">

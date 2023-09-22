@@ -1,7 +1,13 @@
 <?php 
 require_once view_path('partials/header');
 ?>
-<!-- Google Font: Source Sans Pro -->
+<style>
+   .zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
+</style>
 
   <!-- Main content -->
   <div class="main-content">
@@ -25,7 +31,7 @@ require_once view_path('partials/header');
                 <table id="myTable" class="table   mb-0 text-center table-dark table-hover text-light">
                     <thead class="text-primary">
                         <tr>
-                            <th>#</th>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
@@ -39,7 +45,11 @@ require_once view_path('partials/header');
                     <?php if(!empty($users)):?>
                       <?php foreach ($users as $user):?>
                                     <tr class="bg-white">
-                                        <td><?= $no;?></td>
+                                        <td class="zoom">
+                                          <a href="index.php?pg=profile&id=<?=$user['id']?>">
+                                          <img class="rounded-circle" src="<?=crop($user['image'])?>" style="width=50%;max-width:50px;height=100%;max-height:100px;" >
+                                          </a>
+                                        </td>
                                         <td><?= $user['name'];?></td>
                                         <td><?= $user['email'];?></td>
                                         <td><?= $user['phone'];?></td>

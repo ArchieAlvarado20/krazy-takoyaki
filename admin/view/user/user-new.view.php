@@ -19,7 +19,7 @@ require_once view_path('partials/header');
           </div>
         </div>
         <div class="card-body">
-          <form action="" method="POST">
+          <form action="" method="POST" enctype="multipart/form-data">
             <div class="col-sm-12">
               <div class="mb-3">
                 <label for="">Name</label>        
@@ -63,7 +63,7 @@ require_once view_path('partials/header');
                   
                     <div class="mb-3 mt-1 row d-flex">
                       <div class="col-10">
-                          <label for="formFile" class="form-label fw-bold">Product Image</label>
+                          <label for="formFile" class="form-label fw-bold">User Image</label>
                             <input  value="<?=set_value('image')?>" type="file" name="image" class="form-control bg-dark <?=!empty($error['image']) ? 'border-danger' : '' ;?>" placeholder="No file selected."  aria-label="Username" aria-describedby="basic-addon1">
                              <?php if(!empty($error['image'])):?><small class="text-danger"><?=$error['image']?></small><?php endif; ?>
                       </div>
