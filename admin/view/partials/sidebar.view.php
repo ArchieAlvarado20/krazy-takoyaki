@@ -45,6 +45,9 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle <?= $tab == 'stocks' ? 'active' : '';?>
                                                               <?= $tab == 'stocks-new' ? 'active' : '';?>
+                                                              <?= $tab == 'raw-stocks' ? 'active' : '';?>
+                                                              <?= $tab == 'raw-stocks-new' ? 'active' : '';?>
+                                                              <?= $tab == 'get-stocks' ? 'active' : '';?>
                                                               <?= $tab == 'inventory' ? 'active' : '';?>
                                                               <?= $tab == 'critical' ? 'active' : '';?>
                                                               <?= $tab == 'supplier' ? 'active' : '';?>
@@ -56,11 +59,16 @@
                                                             <?= $tab == 'reference-update'? 'active' : '';?>
                                                             " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Stocks</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="index.php?pg=reference" class="dropdown-item <?= $tab == 'reference' ? 'active' : '';?>
-                                                        <?= $tab == 'reference-new'? 'active' : '';?>
-                                                        <?= $tab == 'reference-update'? 'active' : '';?>">Add Reference</a>
+                        <a href="index.php?pg=raw-stocks" class="dropdown-item <?= $tab == 'raw-stocks' ? 'active' : '';?>
+                        <?= $tab == 'raw-stocks-new' ? 'active' : '';?>
+                                                              ">Ingridients and Materials</a>
                             <a href="index.php?pg=stocks" class="dropdown-item <?= $tab == 'stocks' ? 'active' : '';?>
                                                               <?= $tab == 'stocks-new' ? 'active' : '';?>">Add Stocks</a>
+                                                              <a href="index.php?pg=reference" class="dropdown-item <?= $tab == 'reference' ? 'active' : '';?>
+                                                        <?= $tab == 'reference-new'? 'active' : '';?>
+                                                        <?= $tab == 'reference-update'? 'active' : '';?>">Add Reference</a>
+                            <a href="index.php?pg=get-stocks" class="dropdown-item <?= $tab == 'get-stocks' ? 'active' : '';?>
+                            ">Withdrawn-Stocks</a>
                             <a href="index.php?pg=inventory" class="dropdown-item <?= $tab == 'inventory' ? 'active' : '';?>">Inventory</a>
                             <a href="index.php?pg=critical" class="dropdown-item <?= $tab == 'critical' ? 'active' : '';?>">Critical Stocks</a>
                             <a href="index.php?pg=supplier" class="dropdown-item <?= $tab == 'supplier' ? 'active' : '';?>">Supplier</a>

@@ -8,8 +8,11 @@ $today = date('Y-m-d');
 //product
 $countClass  = new Product();
 $counts = $countClass->query("SELECT COUNT(*) AS count FROM tblproduct");
-$criticals = $countClass->query("select sum(status = 1) as critical from tblproduct");
-$full_stocks = $countClass->query("select sum(status = 0) as full_stock from tblproduct");
+
+//stocks
+$stocks = $countClass->query("select COUNT(*) AS count FROM tblproduct where category = 0");
+$criticals = $countClass->query("select sum(status = 1) as critical from tblproduct where category = 0");
+$full_stocks = $countClass->query("select sum(status = 0) as full_stock from tblproduct where category = 0");
 
 //user account
 $users = new User;

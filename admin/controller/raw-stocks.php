@@ -7,7 +7,7 @@ $tab = $_GET['pg'] ?? 'dashboard';
     $products = $productClass->query("select * from tblproduct where category = 1  order by id desc");
 
 if(Auth::access('')){
-    require view_path('product/product');  
+    require view_path('stocks/raw-stocks');  
 }else{
     Auth::setMessage("You dont have access to the admin page");
     require view_path('auth/denied');

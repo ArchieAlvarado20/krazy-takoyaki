@@ -137,7 +137,7 @@
                             <canvas id="barChart"></canvas>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-xl-6">
+                    <!-- <div class="col-sm-12 col-xl-6">
                         <div class="bg-secondary text-center rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0">Cost vs. Revenue</h6>
@@ -145,7 +145,7 @@
                             </div>
                             <canvas id="lineChart"></canvas>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- Sales Chart End -->
@@ -172,7 +172,7 @@
                     
                     </div>
 
-                    <div class="col-sm-6 col-xl-3">
+                    <!-- <div class="col-sm-6 col-xl-3">
                       <a href="index.php?pg=inventory">
                           <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                               <i class="fa fa-chart-area fa-3x text-primary"></i>
@@ -200,7 +200,7 @@
                         </div>
                       </a>
                       
-                    </div>
+                    </div> -->
      
                
     
@@ -219,6 +219,74 @@
              
         </div>
         <!-- /.row -->
+        <div class="row container-fluid mb-1 mt-3">
+          <h1 class="text-primary " style="font-weight: bolder;">Stocks</h1>
+        </div>
+        <div class="row p-3">
+          <!-- ./col -->
+             <div class="col-sm-6 col-xl-3">
+                    <a href="index.php?pg=product">
+                          <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-5">
+                            <?php foreach($stocks as $count) {?>
+                                <p class="mb-2">Stock Line</p>
+                                <h6 class="mb-0 text-center"><?= $count['count'] ?></h6>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3">
+                      <a href="index.php?pg=inventory">
+                          <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                              <i class="fa fa-chart-area fa-3x text-primary"></i>
+                              <div class="ms-5">
+                              <?php foreach($full_stocks as $full_stock) {?>
+                                  <p class="mb-2">Full Stocks</p>
+                                  <h6 class="mb-0 text-center"><?= $full_stock['full_stock'] ?></h6>
+                                  <?php } ?>
+                              </div>
+                          </div>
+                      </a>
+                  
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3">
+                      <a href="index.php?pg=critical">
+                          <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-5">
+                            <?php foreach($criticals as $critical) {?>
+                                <p class="mb-2">Critical Stocks</p>
+                                <h6 class="mb-0 text-center"><?= $critical['critical'] ?></h6>
+                                <?php } ?>
+                            </div>
+                        </div>
+                      </a>
+                      
+                    </div>
+     
+               
+    
+
+                         <!-- DONUT CHART -->
+<!--         
+                  <div class="col-sm-12 mt-3">
+                    <a href="index.php?pg=top-selling">
+                       <div class="bg-secondary rounded p-3 col-4 align-items-center">
+                            <h6 class="mb-4 text-primary">Top Selling Product (Top 5)</h6>
+                            <center><canvas id="donutChart"  ></canvas></center>
+                        </div>
+                    </a>
+                       
+                    </div> -->
+             
+        </div>
+        <!-- /.row -->
+
         <div class="row container-fluid mb-3 mt-3">
           <h1 class="text-primary " style="font-weight: bolder;">User Accounts</h1>
         </div>

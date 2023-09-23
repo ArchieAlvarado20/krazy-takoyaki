@@ -49,9 +49,13 @@
 <body>
    <style>
     @import url("assets/css/modal.css");
+    body{
+        background-color: #182736;
+    }
    </style>
    
                      <div class="user-panel mt-2 mb-0 d-flex row px-4" style="background-color: #141414;">
+                                
                      <div class="nav-item dropdown col-5">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <img class="rounded-circle me-lg-2" src="<?= auth('image')?>" alt="" style="width: 40px; height: 40px;">
@@ -64,11 +68,9 @@
                             <button href="" type="button" class="dropdown-item text-white" onclick="logout()">Log Out</button>
                         </div>
                     </div>
-                                
-                                
                                     <div class="col-4 d-flex mt-1">
                                         <img src="assets/img/tako.png" alt="Logo" style="width: 40px; height: 40px;" class="col-sm-1">
-                                        <h4 class="text-primary mt-2"><?=esc(APP_NAME)?> (POS)</h4>
+                                        <h4 class="text-primary mt-2"> RAW-MATERIALS-POS</h4>
                                     </div>
                                    <h1 class="js-gtotal text-success col-2 text-end" style="font-family: 'Orbitron', sans-serif;font-weight:bolder">0.00</h1> 
                                    
@@ -77,7 +79,7 @@
    <div class="col-3 mt-2 text-center">
     </div>
    </div>
-<div class="row-sm-12 ms-2 d-flex mt-0 dark">
+<div class="row-sm-12 ms-2 d-flex mt-0">
     <div class="col-sm-6 ms-2 mt-0">
        
                 <!-- products -->
@@ -119,14 +121,14 @@
                                            <!-- end dark mode -->
                           </div>
                               <div class="table-responsive" style="height:600px;overflow-y: scroll">
-                                  <table class="table table-sm mb-0 text-sm text-center table-dark table-hover text-white">
+                                  <table class="table table-sm mb-0 text-sm text-center table-hover text-white">
                               <thead>
                                   <tr class="text-primary">
                                       <th>Image</th>
                                       <th>Name</th>
                                       <th>Description</th>
                                       <th>Quantity</th>
-                                      <th>Price</th>
+                                      <th>Cost</th>
                                       <th>Total</th>
                                   </tr>
                               </thead>
@@ -140,9 +142,9 @@
                                 <div class="row-sm-2 ms-2">
                                             <div class="col-sm-12 float-end p-5">
 
-                                                    <div class="row"><button onclick="show_modal('payment-modal')" accesskey="x" class="col-sm-12 btn btn-success mb-2 float-end ">Check-out (ALT + X)</button> </div> 
+                                                    <div class="row"><button onclick="show_modal('payment-modal')" accesskey="x" class="col-sm-12 btn btn-success mb-2 float-end ">Withdraw-Items (ALT + X)</button> </div> 
                                                     <div class="row"><button accesskey="c" onclick="clear_all()" class="col-sm-12 btn btn-warning mb-2 me-5">Clear-all (ALT + C)</button></div>
-                                                    <div class="row"><button accesskey="l" onclick="raw_pos()" class="col-sm-12 btn btn-primary  mb-2me-5">RAW-POS (ALT + L)</button></div>
+                                                    <div class="row"><button accesskey="l" onclick="POS()" class="col-sm-12 btn btn-primary  mb-2me-5">POS (ALT + L)</button></div>
                                                     
                                                 
                                             </div>
@@ -161,67 +163,35 @@
      <!--modals start-->
      <!--payment-modal start-->
      <div role="close-button" onclick="hide_modal(event,'payment-modal')" class="js-payment-modal d-none" style="background-color: #000000aa; width: 100%; height: 100%;position: absolute; left: 0px;top:0px;z-index:2;">
-         <div style="animation: appear 0.5s; border-radius:10px;width: 400px; height: 400px;padding: 20px; margin: auto;margin-top:200px; backdrop-filter: blur(10px);color: white;opacity: 80%;" class="bg-secondary text-white" >
+         <div style="animation: appear 0.5s; border-radius:10px;width: 400px; height: 300px;padding: 20px; margin: auto;margin-top:200px; backdrop-filter: blur(10px);color: white;opacity: 80%;" class="bg-secondary text-white" >
          <div class="row-sm-12 d-flex">
-         <h3 class="mt-0 text-primary col-sm-12 text-center mb-3"><strong>PAYMENT</strong></h3>
+         <h3 class="mt-0 text-primary col-sm-12 text-center mb-3"><strong>Summary</strong></h3>
             <!-- <div class="float-end p-1 text-right col-sm-1"><i class="fa fa-times text-dark " onclick="hide_modal(event,'payment-modal')" role="close-button"  type="button"></i></div> -->
          </div>
                 
                 <div class="row d-flex">
-                    <p class="col text-left text-white mt-1">SUB-TOTAL:</p><h3 class="js-gtotal_mod col text-right text-success" style="font-family: 'Orbitron', sans-serif;font-weight: bolder;"></h3>
+                    <p class="col text-left text-white mt-1">TOTAL-COST:</p><h3 class="js-gtotal_mod col text-right text-success" style="font-family: 'Orbitron', sans-serif;font-weight: bolder;"></h3>
+                </div>
+                <div class="row d-flex">
+                    <p class="col-8 text-left text-white mt-1">TOTAL-ITEMS:</p><h3 class="js-items-total col-4 text-right text-success" style="font-family: 'Orbitron', sans-serif;font-weight: bolder;"></h3>
+                </div>
+                <div class="row d-flex">
+                    <p class="col-8 text-left text-white mt-1">TOTAL-COUNT:</p><h3 class="js-items-pcs col-4 text-right text-success" style="font-family: 'Orbitron', sans-serif;font-weight: bolder;"></h3>
                 </div>
                 <div class="row d-flex mb-3">
-                        <p class="col text-left text-white mt-1">PAYMENT:</p>
-                        <input onkeyup ="enter_checkout(event)" class="js-payment-input form-control col text-white" type="number"  placeholder="Enter amount" name="">
-                </div>
-
-                <div class="row d-flex mb-3">
-                        <p class="col text-left text-white mt-1">DINE:</p>
-                        <select class="js-take form-control bg-dark col text-white" id="js-take" type="text" name="">
-                            <option value="Dine-in">Dine-in</option>
-                            <option value="Take-out">Take-out</option>
-                        </select>
-                </div>
-
-                <div class="row d-flex mb-3">
-                        <p class="col text-left text-white mt-1">TABLE NUMBER:</p>
-                        <input onkeyup="check_chekout(e)" class="js-table form-control col text-white" type="number" id="js-table " placeholder="Enter Table Number" name="">
+                       
+                        <input onkeyup ="enter_checkout(event)" class="js-payment-input form-control col text-white" type="hidden"  placeholder="Enter amount" name="">
                 </div>
                 
 
                             <!-- <button role="close-button" onclick="hide_modal(event,'payment-modal')" type="button" class="col-md-5 btn btn-danger me-1">Cancel</button> -->
-                            <button role="close-button" onclick="checkout(event)" class=" col-md-12 btn btn-primary float-end mb-1 mt-1 js-render">Render</button>  
+                            <button role="close-button" onclick="checkout(event);rendered_success()" class=" col-md-12 btn btn-primary float-end mb-1 mt-1 js-render">Proceed</button>  
                           
                    
             </div>
     </div>
              <!--payment-modal end-->
-            <!--change-modal start-->
-     <div role="close-button"  onclick="{hide_modal(event,'change');rendered_success()}" class="js-change-modal d-none" style="background-color: #000000aa; width: 100%; height: 100%;position: absolute; left: 0px;top:0px;z-index:2;">
-            <div style="animation: appear 0.5s; border-radius:10px;width: 400px; height: 320px;padding: 20px; margin: auto;margin-top:200px;backdrop-filter: blur(10px);color: white;opacity: 80%;" class="bg-secondary">
-            <div class="row-sm-12 d-flex">
-         <h3 class="ms-2 text-primary col-sm-12 text-center mb-3"><strong>CHANGE</strong></h3>
-            <!-- <div class="float-end p-1 text-right col-sm-1"><i class="fa fa-times text-dark " onclick="hide_modal(event,'payment-modal')" role="close-button"  type="button"></i></div> -->
-         </div>
-                <div class="row d-flex">
-         <p class="col text-left text-white mt-1 fw-bold">TOTAL:</p><h4 class="js-gtotal_change col text-center text-success fw-bold" style="font-weight: bolder;font-family: 'Orbitron', sans-serif"></h4>
-         </div>
-         <div class="row d-flex">
-         <p class="col text-left text-white mt-1 fw-bold">PAYMENT:</p><h4 class="js-payment-result col text-center text-success fw-bold"  style="font-weight: bolder;font-family: 'Orbitron', sans-serif"></h4>
-         </div>
-         <hr class="p-0">
-         <div class="row d-flex mb-2">
-         <p class="col-sm-6 text-left text-white mt-1 fw-bold">CHANGE:</p>
-                <!-- <input class="js-change-input form-control float-end col-sm-4 bg-white border-0 text-xl" type="number" readonly> -->
-                <h4 class="js-change text-primary text-center col-sm-6" style="font-weight: bolder;font-family: 'Orbitron', sans-serif"></h4>
-         </div>
-              
-                           <center><button class="js-change-modal-close col-md-5 btn btn-primary float-center mt-3" role="close-button"  onclick="{hide_modal(event,'change');rendered_success()}">Done</button>  </center> 
-                          
-                   
-            </div>
-    </div>
-    <!--change-modal end-->
+          
      <!--modals end-->
   </body>
 <script>
@@ -233,8 +203,6 @@
     var CHANGE = 0;
     var AMOUNT = 0;
     var COUNT = 0;
-    var TABLE = 0;
-    var TAKE = "";
   
 
     var main_input = document.querySelector(".js-search");
@@ -288,7 +256,7 @@
            
         });
 
-        ajax.open('post', 'index.php?pg=ajax-pos',true);
+        ajax.open('post', 'index.php?pg=ajax-raw-pos',true);
         ajax.send(JSON.stringify(data));
     }
     
@@ -343,8 +311,8 @@
                                 <button index="${index}"onclick="change_qty('up', event)" class="btn btn-sm input-group-text bg-dark text-white border-primary text-center">+</button>
                             </div>
                         </td>
-                        <td class="text-md">₱&nbsp;${data.price}</td>
-                        <td class="text-md">₱&nbsp;${((data.price) * (data.qty)).toFixed(2)}</td>
+                        <td class="text-md">₱&nbsp;${data.cost}</td>
+                        <td class="text-md">₱&nbsp;${((data.cost) * (data.qty)).toFixed(2)}</td>
                         <td> <button onclick="clear_item(${index})" class="btn btn-primary btn-sm"><i class="fa fa-times"></i></button></td>
   
                     </tr>    
@@ -382,6 +350,9 @@
         var item_count = document.querySelector(".js-items-count");
         item_count.innerHTML = ITEMS.length;
 
+        var item_count = document.querySelector(".js-items-total");
+        item_count.innerHTML = ITEMS.length;
+
         var items_div = document.querySelector(".js-items");
         items_div.innerHTML = "";
         var grand_total = 0;
@@ -391,7 +362,7 @@
        
         for (var i = ITEMS.length - 1; i >= 0; i--){
             items_div.innerHTML += item_html(ITEMS[i],i);
-            grand_total += ITEMS[i].qty * ITEMS[i].price;
+            grand_total += ITEMS[i].qty * ITEMS[i].cost;
             count += ITEMS[i].qty;
         }
 
@@ -402,10 +373,12 @@
         var gtotal_mod = document.querySelector(".js-gtotal_mod");
         gtotal_mod.innerHTML =  grand_total.toFixed(2);
 
-        var gtotal_mod = document.querySelector(".js-gtotal_change");
-        gtotal_mod.innerHTML =  grand_total.toFixed(2);
 
         COUNT = count;
+
+        var item_count = document.querySelector(".js-items-pcs");
+        item_count.innerHTML = COUNT;
+
 
     }
     function change_qty(direction, e)
@@ -491,7 +464,7 @@
             mydiv.querySelector(".js-change-modal-close").focus();
 
             var amount = document.querySelector(".js-payment-result");
-            amount.innerHTML = AMOUNT.toFixed(2);
+            grand_total = amount
 
             }
                 
@@ -519,37 +492,12 @@
     function checkout(e)
     {
         var amount = e.currentTarget.parentNode.querySelector(".js-payment-input").value.trim();
-        var table = e.currentTarget.parentNode.querySelector(".js-table").value.trim();
-        var take = e.currentTarget.parentNode.querySelector(".js-take").value.trim();
-     
-        if(amount == "")
-        { 
-            swal.fire({
-                        title: 'No amount entered',
-                        icon: 'error',
-                        confirmButtonText: 'Okay'
-                    });
-                        return;
-        }
-
-        amount = parseFloat(amount);
-        if(amount < GTOTAL){
-            swal.fire({
-                        title: 'Please enter right amount',
-                        icon: 'error',
-                        confirmButtonText: 'Okay'
-                    });
-                   return;
-        }
 
         CHANGE = amount - GTOTAL;
         AMOUNT = amount;
-        TABLE = table;
-        TAKE = take;
         // CHANGE = CHANGE.toFixed(2);
 
         hide_modal(true,'payment-modal');
-        show_modal('change');
 
         //remove unwanted information
         var ITEM_NEW = [];
@@ -568,17 +516,7 @@
         data_type: "checkout",
         text: ITEM_NEW
     });
-    //open receipt page
-		print_receipt({
-			company:'Idats Store',
-			amount:amount,
-            take:TAKE,
-            table:TABLE,
-			change:CHANGE,
-			gtotal:GTOTAL,
-            count:COUNT,
-			data:ITEMS
-		});
+   
     //clear items
     // ITEMS = [],
     // refresh_items_display();
@@ -590,20 +528,6 @@
     });
     }
 
-    
-	function print_receipt(obj)
-	{
-		var vars = JSON.stringify(obj);
-
-		RECEIPT_WINDOW = window.open('index.php?pg=print&vars='+vars,'printpage',"width=100px;");
-
-		setTimeout(close_receipt_window, 1000);
-	}
- 
- 	function close_receipt_window()
- 	{
- 		RECEIPT_WINDOW.close();
- 	}
 
     send_data({
         data_type: "search",
@@ -668,7 +592,7 @@
 function rendered_success(){
     Swal.fire(
                         'Success',
-                        'Transaction Completed',
+                        'Withdrawal Completed',
                         'success'
                         )
                         ITEMS = [];
@@ -676,11 +600,11 @@ function rendered_success(){
                         main_input.value = "";
   
 }
-function raw_pos(){
+function POS(){
     if(ITEMS.length > 0){
                 swal.fire({
                         title: 'Not Empty Cart',
-                        text: 'Please remove all the item from the cart before proceeding to raw-pos',
+                        text: 'Please remove all the item from the cart before proceeding to POS',
                         icon: 'error',
                         confirmButtonText: 'Okay',
                        
@@ -688,8 +612,8 @@ function raw_pos(){
         }else
         if(ITEMS.length == 0){
       Swal.fire({
-                    title: 'RAW-POS',
-                    text: "Are you sure you want to access raw-pos?",
+                    title: 'POS',
+                    text: "Are you sure you want to access POS?",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -697,22 +621,21 @@ function raw_pos(){
                     confirmButtonText: 'Yes, I want to proceed!',
                     }).then((result) => {
                     if (result.isConfirmed) {
-                      setTimeout(function(){window.top.location="index.php?pg=raw-pos"} , 2000);
+                      setTimeout(function(){window.top.location="index.php?pg=pos"} , 2000);
                         Swal.fire(
-                        'Welcome to RAW-POS!',
-                        'Successfully access raw-pos',
+                        'Welcome to POS...!',
+                        'Successfully access POS',
                         'success',
                         )
                     }
                     });
     }
 }
-
 function logout(){
     if(ITEMS.length > 0){
                 swal.fire({
                         title: 'Not Empty Cart',
-                        text: 'Please remove all the item from the cart before logging-out',
+                        text: 'Please remove all the item from the cart before proceeding to POS',
                         icon: 'error',
                         confirmButtonText: 'Okay',
                        

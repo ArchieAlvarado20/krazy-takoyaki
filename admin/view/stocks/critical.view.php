@@ -28,9 +28,9 @@ require_once view_path('partials/header');
                   <tr>
                     <th class="text-center">#</th>
                     <th class="text-center">Pcode</th>
-                    <th class="text-center">Barcode</th>
+                    <th class="text-center">Name</th>
                     <th class="text-center">Description</th>
-                    <th class="text-center">Category</th>
+                    <th class="text-center">Cost</th>
                     <th class="text-center">Re-order</th>
                     <th class="text-center">Actual Stock</th>
                     <th class="text-center">Status</th>
@@ -44,9 +44,9 @@ require_once view_path('partials/header');
                             <tr>
                               <td class="text-center"><?= $no ?></td>
                               <td class="text-center"><?= $critical['pcode'] ?></td>
-                              <td class="text-center" ><?= $critical['barcode'] ?></td>
+                              <td class="text-center" ><?= $critical['p_name'] ?></td>
                               <td class="text-center" style="font-weight:bolder"><?= strtoupper($critical['description']) ?></td>
-                              <td class="text-center"><?= $critical['category'] ?></td>
+                              <td class="text-center"><?= $critical['cost'] ?></td>
                               <td class="text-center"><?= $critical['re_order'] ?></td>
                               <td class="text-center"><?= $critical['qty'] ?></td> 
                               <td class="text-center"><?= $critical['status'] == '1' ? "<span class='badge bg-primary text-sm'>Critical</span>" : "<span class='badge bg-primary text-sm'>Critical</span>"?></td> 

@@ -18,9 +18,9 @@ require_once view_path('partials/header');
               <div class="card-header mb-0">
               <div class="row p-2">
                       <div class="col-sm-8 mt-1">
-                        <h3 class="text-primary "><strong><i class="fa fa-cart-flatbed"></i><small>Added-Stock-History</small></strong> </h3>
+                        <h3 class="text-primary "><strong><i class="fa fa-cart-flatbed"></i><small>Withdrawn-Stock-History</small></strong> </h3>
                       </div>
-                      <div class="col-sm-2 d-flex">
+                      <!-- <div class="col-sm-2 d-flex">
                       <form action="" method="post">
                       <select name="refno" id="refno" class="form-control refno float-end bg-dark" required oninvalid="this.setCustomValidity('No reference number available')">
                       <?php 
@@ -37,10 +37,10 @@ require_once view_path('partials/header');
                       
                       <div class="col-sm-2 d-flex float-sm-end">
                           <ol class="col-12 text-center">
-                            <button class="btn btn-dark text-primary px-3 float-end">Add Stocks</button>         
+                            <button class="btn btn-dark text-primary px-3 float-end">New Stocks</button>         
                           </ol>
                           </form>
-                      </div>
+                      </div> -->
                          
                         </div>
                       </div>
@@ -50,14 +50,15 @@ require_once view_path('partials/header');
                   <thead class="text-primary">
                   <tr>
                     <th class="text-center">#</th>
-                    <th class="text-center">Reference</th>
+                    <th class="text-center">Transno</th>
                     <th class="text-center">Pcode</th>
                     <th class="text-center">Name</th>
                     <th class="text-center">Description</th>
                     <th class="text-center">Qty</th>
-                    <th class="text-center">Stocked_at</th>
-                    <th class="text-center">Stocked by</th>
-                    <th class="text-center">Supplier</th>
+                    <th class="text-center">Cost</th>
+                    <th class="text-center">Total</th>
+                    <th class="text-center">Withdrawn_at</th>
+                    <th class="text-center">Withdrawn_by</th>
                     <th class="text-center">Action</th>
                   </tr>
                   </thead>
@@ -68,14 +69,15 @@ require_once view_path('partials/header');
                             <tr>
                             <td class="text-center" ><?= $no ?></td>
                
-                              <td class="text-center" ><?= $stock['refno'] ?></td>
+                              <td class="text-center" ><?= $stock['transno'] ?></td>
                               <td class="text-center"><?= $stock['pcode'] ?></td>
                               <td class="text-center"><?= $stock['p_name'] ?></td>
                               <td class="text-center" style="font-weight:bolder;" ><?= strtoupper($stock['description'])?></td>
                               <td class="text-center" ><?= $stock['qty'] ?></td>
-                              <td class="text-center"><?= $stock['stock_at'] ?></td>
-                              <td class="text-center"><?= $stock['stock_by'] ?></td>
-                              <td class="text-center"><?= $stock['supplier'] ?></td>
+                              <td class="text-center" ><?= $stock['cost'] ?></td>
+                              <td class="text-center"><?= $stock['total'] ?></td>
+                              <td class="text-center"><?= $stock['sdate'] ?></td>
+                              <td class="text-center"><?= $stock['user_id'] ?></td>
                               <td  class="text-center">
                               
                              <a href="index.php?pg=stocks-delete&id=<?=$stock['id']?>" class="btn btn-sm btn-dark text-primary" name="delete_qty" value=""><i class="fa fa-trash"></i></button>

@@ -59,18 +59,18 @@ class Product extends Model
                         $error['p_name'] = "Product name is required";
                     }
                     //check price
-                    // if(empty($data['price'])){
-                    //     $error['price'] = "Product price is required";
-                    // }else
-                    // if(!preg_match("/^[0-9.]+$/",$data['price'])){
-                    //  $error['price'] = "Price must be number";
-                    // }
-                    // if(empty($data['re_order'])){
-                    //     $error['re_order'] = "Re-order level is required";
-                    // }
-                    // if(empty($data['cost'])){
-                    //     $error['cost'] = "Product cost is required";
-                    // }
+                    if(empty($data['price'])){
+                        $error['price'] = "Product price is required";
+                    }else
+                    if(!preg_match("/^[0-9.]+$/",$data['price'])){
+                     $error['price'] = "Price must be number";
+                    }
+                    if(empty($data['re_order'])){
+                        $error['re_order'] = "Re-order level is required";
+                    }
+                    if(empty($data['cost'])){
+                        $error['cost'] = "Product cost is required";
+                    }
 
                     return $error;
                 }    

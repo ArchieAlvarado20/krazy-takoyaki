@@ -19,11 +19,11 @@
               <div class="card-body ">
                   <div class="row p-2">
                       <div class="col-sm-6 mt-1">
-                        <h3 class="text-primary "><strong><i class="fa fa-hamburger"></i> Product</strong> </h3>
+                        <h3 class="text-primary "><strong><i class="fa fa-hamburger"></i> Raw-Ingridients and Materials</strong> </h3>
                       </div>
                       <div class="col-sm-6">
                           <ol class="float-sm-right">
-                            <a href="index.php?pg=product-new" class="btn btn-dark text-primary float-end">New Product</a>         
+                            <a href="index.php?pg=raw-stocks-new" class="btn btn-dark text-primary float-end">New Materials</a>         
                           </ol>
                       </div>
                     </div>
@@ -36,7 +36,8 @@
                     <th class="text-center">Pcode</th>
                     <th class="text-center">Name</th>
                     <th class="text-center">Description</th>
-                    <th class="text-center">Price</th>
+                    <th class="text-center">Cost</th>
+                    <th class="text-center">Re-order</th>
                     <th class="text-center">Display</th>
                     <th class="text-center">Action</th>
                   </tr>
@@ -51,7 +52,8 @@
                               <td class="text-center"><?= $product['pcode'] ?></td>
                               <td class="text-center" ><?= $product['p_name'] ?></td>
                               <td class="text-center" style="font-weight:bolder"><?= $product['description'] ?></td>
-                              <td class="text-center"><?= $product['price'] ?></td>
+                              <td class="text-center"><?= $product['cost'] ?></td>
+                              <td class="text-center"><?= $product['re_order'] ?></td>
                               <td class="text-center"><?= $product['category'] == '1' ?"<span class='badge bg-success text-sm'>POS</span>" : "<span class='badge bg-primary text-sm'>Raw-Items</span>";?></td>
                               <td  class="text-center">
                               <a href="index.php?pg=product-edit&id=<?= $product['id'];?>" class="btn btn-sm btn-dark text-success m-0"><i class="fa fa-edit"></i> </a>

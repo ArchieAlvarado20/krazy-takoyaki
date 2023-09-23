@@ -15,7 +15,6 @@ $error = [];
         $error = $ref->validate($_POST);
         
           $_SESSION['refno'] = $_POST['refno'];
-          $_SESSION['name'] = $_POST['name'];
 
           redirect('stocks-new');  
         

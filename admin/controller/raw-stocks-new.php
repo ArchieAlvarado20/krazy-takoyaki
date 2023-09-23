@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $_POST['date'] = date("Y-m-d H:i:s");
   $_POST['user_id'] = auth("id");
   $_POST['p_name'] = strtoupper($_POST['p_name']);
-  $_POST['category'] = 1;
+  $_POST['category'] = 0;
   // show($_POST);
   // die;
 
@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $_POST['image'] = $destination;
     $product->insert($_POST);   
 
-    redirect('product');
+    redirect('raw-stocks');
     } 
 }
-require view_path('product/product-new');
+require view_path('stocks/raw-stocks-new');

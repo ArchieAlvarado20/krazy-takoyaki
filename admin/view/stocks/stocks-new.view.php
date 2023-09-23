@@ -47,7 +47,7 @@ require_once view_path('partials/header');
                     <th>Name</th>
                     <th>Description</th>
                     <th>Cost</th>
-                    <th>Price</th>
+                    <th>Re-order</th>
                     <th>Qty</th>
                   </tr>
                   </thead>
@@ -213,7 +213,7 @@ require_once view_path('partials/header');
                           <td index="${index}" class="bg-dark" style="cursor: pointer">${data.p_name}</td>
                           <td index="${index}" class="bg-dark" style="cursor: pointer" class="w-50">${data.description}</td>
                           <td index="${index}" class="bg-dark" style="cursor: pointer">${data.cost}</td>
-                          <td index="${index}" class="bg-dark" style="cursor: pointer">${data.price}</td>
+                          <td index="${index}" class="bg-dark" style="cursor: pointer">${data.re_order}</td>
                           <td index="${index}" class="bg-dark" style="cursor: pointer">${data.qty}</td>
                     </tr>    
                                 `;

@@ -12,19 +12,14 @@ require_once view_path('partials/header');
  
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-      </div>
-    </section>
-     <!-- Main content -->
-     <section class="content">
-      <div class="container col-md-8 mt-4">
+    <section class="content-header ">
+      <div class="container col-md-8 mt-5">
       
-        <div class="card shadow">
+        <div class="card shadow bg-secondary">
         
               <!-- /.card-header -->
               <div class="card-body">
-              <h3 class="fw-bold text-center text-secondary"><strong><i class="fa fa-boxes-packing"></i> Edit Supplier</strong></h1>
+              <h3 class="fw-bold text-center text-primary"><strong><i class="fa fa-boxes-packing"></i> Edit Supplier</strong></h1>
               <?php if(!empty($row)):?>
               <form action="" method="POST" enctype="multipart/form-data">
               
@@ -56,12 +51,12 @@ require_once view_path('partials/header');
               </div>
                 <div class="row-sm-12 d-flex p-3">
                   <div class="col-sm-6">
-                     <a href="index.php?pg=supplier"><button type="button" class="btn btn-warning text-light px-5">
+                     <a href="index.php?pg=supplier"><button type="button" class="btn btn btn-dark border-primary text-primary px-5">
                           Back
                         </button></a>
                   </div>
                    <div class="col-sm-6">
-                     <button type="submit" class="btn btn-success float-right px-5">Update</button>
+                     <button type="submit" class="btn btn btn-dark border-primary text-primary float-end px-5">Update</button>
                    </div>
                      
                   </div>
@@ -72,7 +67,7 @@ require_once view_path('partials/header');
                 <br><br>
             
                     <a href="index.php?pg=admin&tab=product">
-                        <button type="button" class="col-md-5 btn btn-danger me-1">Back</button>
+                        <button type="button" class="col-md-5 btn btn-dark border-primary text-primary me-1">Back</button>
                     </a>
     
              <?php endif; ?>
@@ -80,19 +75,13 @@ require_once view_path('partials/header');
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
+            </section>
           </div>
          
           <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  
-  
+     
   <?php
   require view_path('partials/footer');
   ?>

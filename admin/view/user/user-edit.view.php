@@ -69,7 +69,7 @@ require_once view_path('partials/header');
                              <?php if(!empty($error['image'])):?><small class="text-danger"><?=$error['image']?></small><?php endif; ?>
                     </div>
                     <div class="col-2">
-                        <center><img src="<?=$row['image']?>" alt="" class="mx-auto mb-3 mt-3" style="width:100%;max-width:100px;height:100%;max-height:100px;"></center>
+                        <center><img class="rounded-circle me-lg-2 mx-auto mb-3 mt-3" src="<?=$row['image']?>" alt=""  style="width:100%;max-width:100px;height:100%;max-height:100px;"></center>
                     </div>
                     <div class="col-2 text-center  mt-3">
                       <label for="">Activate/De-activate</label>

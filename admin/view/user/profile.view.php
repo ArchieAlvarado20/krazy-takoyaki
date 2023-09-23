@@ -1,5 +1,5 @@
 <?php require view_path('partials/header');?>
-	<div class="row" style="height: 150px;">
+	<div class="row" style="height: 120px;">
 		
 	</div>
 	<div class="container-fluid border col-lg-5 col-md-6 mt-5 p-5 bg-secondary" style="border-radius: 10px;">
