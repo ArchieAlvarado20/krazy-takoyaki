@@ -50,14 +50,14 @@
                               <td class="text-center"><?= $no?></td>
                               <td><img src="<?=crop($product['image'])?>" alt="product image" style="width=50%;max-width:50px;height=100%;max-height:100px;"></td>
                               <td class="text-center"><?= $product['pcode'] ?></td>
-                              <td class="text-center" ><?= $product['p_name'] ?></td>
-                              <td class="text-center" style="font-weight:bolder"><?= $product['description'] ?></td>
+                              <td class="text-center" ><?= strtoupper($product['p_name']) ?></td>
+                              <td class="text-center" style="font-weight:bolder"><?= strtoupper($product['description']) ?></td>
                               <td class="text-center"><?= $product['cost'] ?></td>
                               <td class="text-center"><?= $product['re_order'] ?></td>
                               <td class="text-center"><?= $product['category'] == '1' ?"<span class='badge bg-success text-sm'>POS</span>" : "<span class='badge bg-primary text-sm'>Raw-Items</span>";?></td>
                               <td  class="text-center">
-                              <a href="index.php?pg=product-edit&id=<?= $product['id'];?>" class="btn btn-sm btn-dark text-success m-0"><i class="fa fa-edit"></i> </a>
-                                <a class="btn btn-sm btn-dark text-primary m-0" href="index.php?pg=product-delete&id=<?=$product['id'] ?>" ><i class="fa fa-trash"></i> </a>
+                              <a href="index.php?pg=raw-stocks-edit&id=<?= $product['id'];?>" class="btn btn-sm btn-dark text-success m-0"><i class="fa fa-edit"></i> </a>
+                                <a class="btn btn-sm btn-dark text-primary m-0" href="index.php?pg=raw-stocks-delete&id=<?=$product['id'] ?>" ><i class="fa fa-trash"></i> </a>
                                 
                               </td>
                               

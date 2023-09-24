@@ -19,7 +19,7 @@
                     <?php date_default_timezone_set("Asia/Manila"); ?>
                             <div class="row d-flex mb-3">
                               <div class="col-sm-5">
-                              <h3 class="text-primary "><strong><i class="fa fa-hamburger"></i>Cancelled Items</strong> </h3>
+                              <h3 class="text-primary "><strong><i class="fa fa-hamburger"></i>Returned Stocks</strong> </h3>
                               </div>
                                   <div class="col-sm-2">
                                     
@@ -75,9 +75,9 @@
                               <td class="text-center"><?= $sale['cancel_request'] ?></td>
                               <td class="text-center"><?= $sale['sdate'] ?></td>
                               <td class="text-center"><?= $sale['date'] ?></td>
-                              <td class="text-center"><?= $sale['t_qty'] ?></td>
+                              <td class="text-center"><?= $sale['c_qty'] ?></td>
                               <td>
-                              <a type="button" class="btn btn-sm btn-dark text-primary" href="index.php?pg=cancelled-items-details&id=<?=$sale['id'] ?>"><i class="fa fa-eye"></i></a>
+                              <a type="button" class="btn btn-sm btn-dark text-primary" href="index.php?pg=return-stocks-details&id=<?=$sale['id'] ?>"><i class="fa fa-eye"></i></a>
                             </td>
                              
                               

@@ -17,7 +17,7 @@ require_once view_path('partials/header');
       
         <div class="card shadow bg-secondary">
         <div class="card-header text-center p-3">
-                    <h3 class="mb-3 text-primary "><strong><i class="fa fa-hamburger"></i> Cancel Order</strong></h3>
+                    <h3 class="mb-3 text-primary "><strong><i class="fa fa-hamburger"></i> Return Stocks</strong></h3>
                 </div>  
               <!-- /.card-header -->
               <div class="card-body row d-flex">
@@ -42,8 +42,8 @@ require_once view_path('partials/header');
                   <input type="text" name="description" id="description" class="form-control description bg-dark" autocomplete="off" value="<?=set_value('description',$row['description'])?>" readonly>
                 </div>
                 <div class="mb-3">
-                  <label for="">Price</label>
-                  <input type="text" name="price" id="price" class="form-control price bg-dark" autocomplete="off" value="<?=set_value('price',$row['price'])?>" readonly>
+                  <label for="">Cost</label>
+                  <input type="text" name="cost" id="cost" class="form-control cost bg-dark" autocomplete="off" value="<?=set_value('cost',$row['cost'])?>" readonly>
                 </div>
 
                 <div class="mb-3">
@@ -63,7 +63,7 @@ require_once view_path('partials/header');
                
                 <div class="row d-flex mt-4">
                   <div class="col-sm-6">
-                    <a href="index.php?pg=sold-items"><button type="button" class="btn btn-dark text-primary border-primary px-5">
+                    <a href="index.php?pg=get-stocks"><button type="button" class="btn btn-dark text-primary border-primary px-5">
                           Back
                         </button></a>
                   </div>
@@ -76,7 +76,7 @@ require_once view_path('partials/header');
                 No product was found.
                 <br><br>
             
-                    <a href="index.php?pg=product">
+                    <a href="index.php?pg=get-stocks">
                         <button type="button" class="col-md-5 btn btn-dark text-primary border-primary me-1">Back</button>
                     </a>
     
@@ -109,7 +109,7 @@ require_once view_path('partials/header');
                 
                 <div class="mb-3">
                   <?php foreach ($qty as $row)?>
-                  <input type="hidden" name="c_qty" id="qty" class="form-control bg-dark <?=!empty($error['c_qty']) ? 'border-danger' : '' ;?>" autocomplete="off" value="<?php echo $row['qty']?>" readonly>
+                  <input type="number" name="c_qty" id="qty" class="form-control bg-dark <?=!empty($error['c_qty']) ? 'border-danger' : '' ;?>" autocomplete="off" value="<?php echo $row['qty']?>">
                   <?php if(!empty($error['c_qty'])):?><small class="text-danger"><?=$error['c_qty']?></small><?php endif; ?>
                 </div>
               

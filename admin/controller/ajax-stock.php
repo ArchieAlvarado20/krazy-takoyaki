@@ -30,6 +30,7 @@ $raw_data = file_get_contents("php://input");
                 foreach($row as $key => $rows) {
 
                     $row[$key]['description'] = strtoupper($rows['description']);
+                    $row[$key]['p_name'] = strtoupper($rows['p_name']);
 
                 }
 

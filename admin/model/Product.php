@@ -29,7 +29,16 @@ class Product extends Model
                     if(empty($data['description'])){
                         $error['description'] = "Product description is required";
                     }
-                   
+                    if(empty($data['p_name'])){
+                    $error['p_name'] = "Product name is required";
+                    }
+                    //check price
+                    if(empty($data['price'])){
+                        $error['price'] = "Product price is required";
+                    }else
+                    if(!preg_match("/^[0-9.]+$/",$data['price'])){
+                    $error['price'] = "Price must be number";
+                    }
                  
                     //check price
                    $max_size = 4;//mbs
@@ -49,28 +58,7 @@ class Product extends Model
                             $error['image'] = "The imga must be lower than " .$max_size."Mb";
                         }
                    }
-                   
-                   
-                //search for more validation...
-  
-        
-                  //check qty
-                    if(empty($data['p_name'])){
-                        $error['p_name'] = "Product name is required";
-                    }
-                    //check price
-                    if(empty($data['price'])){
-                        $error['price'] = "Product price is required";
-                    }else
-                    if(!preg_match("/^[0-9.]+$/",$data['price'])){
-                     $error['price'] = "Price must be number";
-                    }
-                    if(empty($data['re_order'])){
-                        $error['re_order'] = "Re-order level is required";
-                    }
-                    if(empty($data['cost'])){
-                        $error['cost'] = "Product cost is required";
-                    }
+
 
                     return $error;
                 }    

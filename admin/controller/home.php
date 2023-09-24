@@ -28,10 +28,10 @@ $cancel = $saleClass->query("select count(*) as count from tblcart where sdate =
 $cashiers_duty =  $saleClass->query("select user_id as cashier from vw_sales where sdate = '$today' order by id desc limit 1");
 
 //last month sales
-$month_sales = $saleClass->query("SELECT SUM(total) AS total_month FROM vw_sales WHERE MONTH(sdate) = MONTH(CURDATE() - INTERVAL 1 MONTH)");
-$transaction_month = "";
-$transaction_month = $saleClass->query("select trans_count as count from tblcart where MONTH(sdate) = MONTH(CURDATE() - INTERVAL 1 MONTH) && status = 'Sold' order by trans_count desc limit 1");
-$cancel = $saleClass->query("select count(*) as count from tblcart where MONTH(sdate) = MONTH(CURDATE() - INTERVAL 1 MONTH) && status = 'Cancelled'");
+// $month_sales = $saleClass->query("SELECT SUM(total) AS total_month FROM vw_sales WHERE MONTH(sdate) = MONTH(CURDATE() - INTERVAL 1 MONTH)");
+// $transaction_month = "";
+// $transaction_month = $saleClass->query("select trans_count as count from tblcart where MONTH(sdate) = MONTH(CURDATE() - INTERVAL 1 MONTH) && status = 'Sold' order by trans_count desc limit 1");
+// $cancel = $saleClass->query("select count(*) as count from tblcart where MONTH(sdate) = MONTH(CURDATE() - INTERVAL 1 MONTH) && status = 'Cancelled'");
 
 //charts
 $donuts = $saleClass->query("select description as month , view as total from tblproduct order by view desc limit 5");

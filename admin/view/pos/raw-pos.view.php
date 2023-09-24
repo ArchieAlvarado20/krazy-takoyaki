@@ -623,7 +623,7 @@ function POS(){
                     if (result.isConfirmed) {
                       setTimeout(function(){window.top.location="index.php?pg=pos"} , 2000);
                         Swal.fire(
-                        'Welcome to POS...!',
+                        'Welcome to POS!',
                         'Successfully access POS',
                         'success',
                         )

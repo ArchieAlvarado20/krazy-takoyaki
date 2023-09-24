@@ -39,25 +39,12 @@ require_once view_path('partials/header');
                   <label for="">Description</label>
                   <input value="<?=set_value('description')?>" type="text" name="description" id="description" class="form-control <?=!empty($error['description']) ? 'border-danger' : '' ;?>" autocomplete="off" >
                   <?php if(!empty($error['description'])):?><small class="text-danger"><?=$error['description']?></small><?php endif; ?>
-                </div>
-
-
-                <div class="mb-3 cost" style="display: none;">
-                  <label for="">Cost</label>
-                  <input value="<?=set_value('cost')?>" type="number" name="cost" id="cost" class="form-control <?=!empty($error['cost']) ? 'border-danger' : '' ;?>" autocomplete="off" >
-                  <?php if(!empty($error['cost'])):?><small class="text-danger"><?=$error['cost']?></small><?php endif; ?>
-                </div>
+                  </div>
 
                 <div class="mb-3 price">
                   <label for="">Price</label>
-                  <input value="<?=set_value('price')?>" type="number" name="price" id="price" class="form-control <?=!empty($error['price']) ? 'border-danger' : '' ;?>" autocomplete="off" >
+                  <input value="<?=set_value('price')?>" type="number" name="price" id="price" class="form-control <?=!empty($error['price']) ? 'border-danger' : '' ;?>" autocomplete="off" step=".01">
                   <?php if(!empty($error['price'])):?><small class="text-danger"><?=$error['price']?></small><?php endif; ?>
-                </div>
-
-                <div class="mb-3 re-order" style="display: none;">
-                  <label for="">Re-order Level(Must have a value if the item is Raw)</label>
-                  <input value="<?=set_value('re_order')?>" type="number" name="re_order" id="re_order" class="form-control <?=!empty($error['re_order']) ? 'border-danger' : '' ;?>" autocomplete="off"  placeholder="0">
-                  <?php if(!empty($error['re_order'])):?><small class="text-danger"><?=$error['re_order']?></small><?php endif; ?>
                 </div>
 
                 <div class="mb-3 row">

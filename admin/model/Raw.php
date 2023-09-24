@@ -1,25 +1,25 @@
 <?php
 /**
- * Sales Class
+ * Product Class
  */
-class Sales extends Model
+class Raw extends Model
 {
 
-                protected $table = "vw_sales";
+                protected $table = "tblproduct";
                 protected $allowed_columns = [
-                    'barcode',
-                    'transno',
+                    'id',
+                    'p_name',
                     'description',
-                    'pcode',
-                    'qty',
-                    'price',
-                    'total',
-                    'sdate',
-                    'user_id',
                     'category',
-                    'p_id'
-                ];	
-               
+                    're_order',
+                    'image',
+                    'date',
+                    'view',
+                    'pcode',
+                    'cost',
+                    
+                  
+                ];
         public function validate($data, $id = null){
             $error = [];
             
@@ -27,23 +27,17 @@ class Sales extends Model
                     if(empty($data['description'])){
                         $error['description'] = "Product description is required";
                     }
-                    // if(!preg_match("/[a-zA-Z _\-\&\(\)]/",$data['description'])){
-                    //     $error['description'] = "Only letters are allowed in description";
-                    // }
-                     //check qty
-                    if(empty($data['qty'])){
-                        $error['qty'] = "Product quantity is required";
-                    }else
-                    if(!preg_match("/^[0-9]+$/",$data['qty'])){
-                     $error['qty'] = "Quantity must be number";
+                    if(empty($data['p_name'])){
+                    $error['p_name'] = "Product name is required";
                     }
                     //check price
-                    if(empty($data['price'])){
-                        $error['price'] = "Product price is required";
-                    }else
-                    if(!preg_match("/^[0-9.]+$/",$data['price'])){
-                     $error['price'] = "Price must be number";
+                    if(empty($data['re_order'])){
+                        $error['re_order'] = "Re-order level is required";
                     }
+                    if(empty($data['cost'])){
+                        $error['cost'] = "Product cost is required";
+                    }
+                 
                     //check price
                    $max_size = 4;//mbs
                    $size = $max_size * (1024 *1024);
@@ -62,14 +56,10 @@ class Sales extends Model
                             $error['image'] = "The imga must be lower than " .$max_size."Mb";
                         }
                    }
-                   
-                   
-                //search for more validation...
-            return $error;
-    }
-    public function generate_barcode(){
-        return "2222" . rand(1000, 999999999);
-    }
+
+
+                    return $error;
+                }    
     public function generate_filename($ext = "jpg" || "jpeg" || "png" || "gif"){
         return hash("sha1",rand(1000, 999999999))."_".rand(1000,9999).".".$ext;
     }

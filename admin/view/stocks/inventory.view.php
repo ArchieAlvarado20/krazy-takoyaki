@@ -48,7 +48,7 @@ require_once view_path('partials/header');
                               <td class="text-center" style="font-weight:bolder"><?= strtoupper($inventory['description']) ?></td>
                               <td class="text-center"><?= $inventory['cost'] ?></td>
                               <td class="text-center"><?= $inventory['re_order'] ?></td>
-                              <td class="text-center"><?= $inventory['qty'] ?></td> 
+                              <td class="text-center"><?= $inventory['qty']?></td> 
                               <td class="text-center"><?= $inventory['status'] == '0' ? "<span class='badge bg-success text-sm'>Full-Stock</span>" : "<span class='badge bg-primary text-sm'>Critical</span>"?></td> 
                             </tr>
                               <?php $no++?> 

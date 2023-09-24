@@ -49,8 +49,8 @@
                               <td class="text-center"><?= $no?></td>
                               <td><img src="<?=crop($product['image'])?>" alt="product image" style="width=50%;max-width:50px;height=100%;max-height:100px;"></td>
                               <td class="text-center"><?= $product['pcode'] ?></td>
-                              <td class="text-center" ><?= $product['p_name'] ?></td>
-                              <td class="text-center" style="font-weight:bolder"><?= $product['description'] ?></td>
+                              <td class="text-center" ><?= strtoupper($product['p_name']) ?></td>
+                              <td class="text-center" style="font-weight:bolder"><?= strtoupper($product['description']) ?></td>
                               <td class="text-center"><?= $product['price'] ?></td>
                               <td class="text-center"><?= $product['category'] == '1' ?"<span class='badge bg-success text-sm'>POS</span>" : "<span class='badge bg-primary text-sm'>Raw-Items</span>";?></td>
                               <td  class="text-center">

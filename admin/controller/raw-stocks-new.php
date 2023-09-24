@@ -4,7 +4,7 @@ $error = [];
 
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-  $product = new Product;
+  $product = new Raw;
   $_POST['date'] = date("Y-m-d H:i:s");
   $_POST['user_id'] = auth("id");
   $_POST['p_name'] = strtoupper($_POST['p_name']);

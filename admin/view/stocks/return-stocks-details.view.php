@@ -17,7 +17,7 @@ require_once view_path('partials/header');
 
         <div class="card shadow bg-secondary">
         <div class=" text-center  mt-4">
-                    <h3 class="mb-2 text-primary"><strong><i class="fa fa-hamburger"></i> <?= $row['category'] == 1 ?'Cancelled Order Details' : 'Returned Stock Details' ?></strong></h3>
+                    <h3 class="mb-2 text-primary"><strong><i class="fa fa-hamburger"></i>Returned Stock Details</strong></h3>
                 </div>  
               <!-- /.card-header -->
               <div class="card-body row d-flex">
@@ -39,8 +39,8 @@ require_once view_path('partials/header');
                   <input type="text" name="description" id="description" class="form-control bg-dark description" autocomplete="off" value="<?php echo $row['description']?>" readonly>
                 </div>
                 <div class="mb-3">
-                  <label for="">Price</label>
-                  <input type="text" name="price" id="price" class="form-control bg-dark price" autocomplete="off" value="<?php echo $row['price']?>" readonly>
+                  <label for="">Cost</label>
+                  <input type="text" name="cost" id="cost" class="form-control bg-dark cost" autocomplete="off" value="<?php echo $row['cost']?>" readonly>
                 </div>
 
                 <div class="mb-3">
@@ -67,7 +67,7 @@ require_once view_path('partials/header');
                
                 <div class="row d-flex mt-4">
                   <div class="col-sm-6">
-                    <a href="index.php?pg=cancelled-items"><button type="button" class="btn btn-dark text-primary border-primary px-5">
+                    <a href="index.php?pg=return-stocks"><button type="button" class="btn btn-dark text-primary border-primary px-5">
                           Back
                         </button></a>
                   </div>

@@ -27,6 +27,7 @@ class Cancel_details extends Model
                         'reason',	
                         'date',	
                         'time',
+                        'cost'
                 ]; 
               //  id	t_id	p_id	void_by	cancel_request	action	qty	reason	date	time
                 public function validate($data, $id = null){

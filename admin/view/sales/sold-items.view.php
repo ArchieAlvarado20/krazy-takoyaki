@@ -17,7 +17,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header mt-5">
 
-      <div class="container col-md-12">
+      <div class="container-fluid col-md-12">
         <div class="card shadow bg-secondary">
               <!-- /.card-header -->
               <div class="card-body ">

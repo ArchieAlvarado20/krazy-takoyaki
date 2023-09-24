@@ -50,7 +50,7 @@ require_once view_path('partials/header');
                   <thead class="text-primary">
                   <tr>
                     <th class="text-center">#</th>
-                    <th class="text-center">Transno</th>
+                    <th class="text-center">Withdraw No.</th>
                     <th class="text-center">Pcode</th>
                     <th class="text-center">Name</th>
                     <th class="text-center">Description</th>
@@ -58,6 +58,7 @@ require_once view_path('partials/header');
                     <th class="text-center">Cost</th>
                     <th class="text-center">Total</th>
                     <th class="text-center">Withdrawn_at</th>
+                    <th class="text-center">Time</th>
                     <th class="text-center">Withdrawn_by</th>
                     <th class="text-center">Action</th>
                   </tr>
@@ -71,16 +72,17 @@ require_once view_path('partials/header');
                
                               <td class="text-center" ><?= $stock['transno'] ?></td>
                               <td class="text-center"><?= $stock['pcode'] ?></td>
-                              <td class="text-center"><?= $stock['p_name'] ?></td>
+                              <td class="text-center"><?=  strtoupper($stock['p_name'])?></td>
                               <td class="text-center" style="font-weight:bolder;" ><?= strtoupper($stock['description'])?></td>
                               <td class="text-center" ><?= $stock['qty'] ?></td>
                               <td class="text-center" ><?= $stock['cost'] ?></td>
                               <td class="text-center"><?= $stock['total'] ?></td>
                               <td class="text-center"><?= $stock['sdate'] ?></td>
+                              <td class="text-center"><?= $stock['stime'] ?></td>
                               <td class="text-center"><?= $stock['user_id'] ?></td>
                               <td  class="text-center">
                               
-                             <a href="index.php?pg=stocks-delete&id=<?=$stock['id']?>" class="btn btn-sm btn-dark text-primary" name="delete_qty" value=""><i class="fa fa-trash"></i></button>
+                             <a href="index.php?pg=get-stocks-delete&id=<?=$stock['id']?>" class="btn btn-sm btn-dark text-primary" name="delete_qty" value=""><i class="fa fa-arrow-right"></i></button>
                        
                               </td>
                             </tr>
